@@ -1,0 +1,5 @@
+Flask
+openai
+helius-sdk
+solana
+gunicorn

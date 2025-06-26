@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+:root[data-theme="light"] {
+    --background-color: #ffffff;
+    --ink-black: #000000;
+    --sketch-gray: #eaeaea;
+    --accent: #000000;
+    --text-color: #000000;
+    --card-border: #000000;
+}
+:root[data-theme="dark"] {
+    --background-color: #222222;
+    --ink-black: #ffffff;
+    --sketch-gray: #333333;
+    --accent: #ffeb3b;
+    --text-color: #ffffff;
+    --card-border: #ffeb3b;
+}
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--background-color);
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--background-color),
+        var(--background-color) 10px,
+        var(--sketch-gray) 10px,
+        var(--sketch-gray) 20px
+    );
+    color: var(--text-color);
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    image-rendering: pixelated;
+}
+.app-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    text-shadow: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    margin: 20px 0;
+}
+header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-top: -10px;
+}
+.card {
+    background: var(--sketch-gray);
+    border: 2px dashed var(--card-border);
+    padding: 30px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    box-shadow: 4px 4px 0 var(--accent);
+}
+button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px dashed var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 3px 3px 0 var(--accent);
+}
+button:hover {
+    background-color: var(--accent);
+    color: var(--background-color);
+    box-shadow: none;
+}
+button.secondary {
+    border-style: dotted;
+    color: var(--text-color);
+    box-shadow: none;
+}
+button.secondary:hover {
+    background-color: var(--accent);
+    color: var(--background-color);
+}
+#scannerSection p {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+input {
+    font-family: 'Inter', sans-serif;
+    padding: 12px;
+    width: 90%;
+    border: 2px dashed var(--accent);
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#report-content {
+    display: block;
+    min-height: 100px;
+}
+.report-container {
+    margin-top: 20px;
+    text-align: left;
+}
+.report-container h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 10px;
+    color: var(--accent);
+}
+.report-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+.report-container li {
+    font-family: 'Inter', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--accent);
+    align-items: center;
+}
+.report-container strong {
+    font-weight: 500;
+}
+.report-container .value {
+    word-break: break-all;
+    text-align: right;
+    color: var(--text-color);
+}
+.report-container a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+.report-container .analysis-section {
+    margin-top: 25px;
+}
+.report-container h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+.report-container .analysis-text {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+.report-container .disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--text-color);
+}
+#loading {
+    text-align: center;
+    padding: 40px;
+}
+#themeToggleBtn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+footer {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin-top: 40px;
+    color: var(--text-color);
+}
+#downloadCardBtn, #shareTwitterBtn {
+    margin-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px dashed var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 3px 3px 0 var(--accent);
+}
+#downloadCardBtn:hover, #shareTwitterBtn:hover {
+    background-color: var(--accent);
+    color: var(--background-color);
+    box-shadow: none;
+}

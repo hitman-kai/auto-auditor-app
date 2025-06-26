@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retarded Auditor</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <button id="themeToggleBtn">?? Dark Mode</button>
+    <div class="app-container">
+        <header>
+            <h1>Retarded Auditor</h1>
+            <p>Your RETARDED solana token auditor!</p>
+        </header>
+        <div id="wallet-connector" class="card">
+            <p>Connect your wallet to start scanning.</p>
+            <button id="connectBtn">Connect Wallet</button>
+            <button id="disconnectBtn" class="secondary">Disconnect</button>
+        </div>
+        <div id="scannerSection" class="card" style="display: none;">
+            <p>Connected Wallet: <span id="walletAddress"></span></p>
+            <input type="text" id="tokenAddressInput" placeholder="Enter token address">
+            <button id="scanBtn">Scan Token</button>
+        </div>
+        <div id="loading" style="display: none;">
+            <p>Retarding...</p>
+        </div>
+        <div id="report-content"></div>
+        <div id="ecosystem-section" style="display: none;">
+            <h3>Ecosystem Connections</h3>
+            <canvas id="ecosystemCanvas"></canvas>
+        </div>
+        <div id="sentiment-section" style="display: none;">
+            <h3>Sentiment Analysis</h3>
+            <p id="sentiment-text"></p>
+        </div>
+        <button id="downloadCardBtn">Generate Retarded Report Card</button>
+        <button id="shareTwitterBtn">Share on Twitter</button>
+
+        <!-- The "Recent Scans" and "Mooner" sections have been removed -->
+
+        <footer>
+            <p>Powered by Retarded Auditor </p>
+        </footer>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

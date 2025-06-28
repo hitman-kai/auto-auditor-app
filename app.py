@@ -19,6 +19,8 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 HELIUS_API_KEY = os.environ.get("HELIUS_API_KEY")
 MORALIS_API_KEY = os.environ.get("MORALIS_API_KEY")
 BIRDEYE_API_KEY = os.environ.get("BIRDEYE_API_KEY")
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Whitelist for testing wallet
@@ -84,6 +86,35 @@ def get_market_cap(token_address):
         if price: return price * 10**9
     except: pass
     return 0
+
+def send_telegram_message(token_address, token_name, symbol, fdv, degen_score, recommendation):
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        logging.error("Telegram credentials not set")
+        return
+    message = (
+        f"🎉 New Token Scan Alert! 🎉\n"
+        f"Token Address: `{token_address}`\n"
+        f"Name: {token_name}\n"
+        f"Symbol: ${symbol}\n"
+        f"Market Cap (FDV): ${fdv:,.2f} " if fdv > 0 else "N/A\n"
+        f"Degen Score: {degen_score}/10\n"
+        f"Recommendation: {recommendation}\n"
+        f"Scanned by [Retarded Auditor](https://retardedauditor.fun/) | Follow us on [X](https://x.com/retardedauditor) at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} PST"
+    )
+    logging.info(f"Telegram params: token={token_address}, name={token_name}, symbol={symbol}, fdv={fdv}, degen={degen_score}, rec={recommendation}")
+    payload = {
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": message,
+        "parse_mode": "Markdown"
+    }
+    logging.info(f"Sending Telegram message: {message}")
+    logging.info(f"Payload: {payload}")
+    try:
+        response = requests.post(url, json=payload, timeout=10)
+        response.raise_for_status()
+        logging.info(f"Telegram API response: {response.text}")
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Telegram send error: {e}")
 
 # --- Routes ---
 @app.route('/')

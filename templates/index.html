@@ -4,47 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retarded Auditor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <button id="themeToggleBtn">?? Dark Mode</button>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="#scannerSection">Scan</a> |
+        <a href="https://t.me/retardedauditor" target="_blank">TG</a> |
+        <a href="https://x.com/retardedauditor" target="_blank">X</a>
+    </nav>
+    <header>
+        <h1>Retarded Auditor</h1>
+        <p>Your RETARDED Solana token auditor!</p>
+    </header>
+
     <div class="app-container">
-        <header>
-            <h1>Retarded Auditor</h1>
-            <p>Your RETARDED solana token auditor!</p>
-        </header>
-        <div id="wallet-connector" class="card">
-            <p>Connect your wallet to start scanning.</p>
-            <button id="connectBtn">Connect Wallet</button>
-            <button id="disconnectBtn" class="secondary">Disconnect</button>
+        <!-- Theme Button -->
+        <button id="themeToggleBtn" class="pixel-btn secondary">TOGGLE DARK MODE, DEGEN!</button>
+
+        <!-- Wallet Connector with pixel-card class -->
+        <div id="wallet-connector" class="pixel-card">
+            <p>Connect your wallet to start scanning, NOOB!</p>
+            <button id="connectBtn" class="pixel-btn">CONNECT WALLET, FOOL!</button>
+            <button id="disconnectBtn" class="pixel-btn secondary" style="display:none;">DISCONNECT, DEGEN!</button>
+            <p id="walletAddress"></p>
         </div>
-        <div id="scannerSection" class="card" style="display: none;">
+
+        <!-- Scanner Section -->
+        <div id="scannerSection" class="pixel-card" style="display:none;">
             <p>Connected Wallet: <span id="walletAddress"></span></p>
-            <input type="text" id="tokenAddressInput" placeholder="Enter token address">
-            <button id="scanBtn">Scan Token</button>
+            <input type="text" id="tokenAddressInput" placeholder="DROP TOKEN HASH HERE">
+            <button id="scanBtn" class="pixel-btn">SCAN IT RETARD!</button>
         </div>
-        <div id="loading" style="display: none;">
-            <p>Retarding...</p>
-        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" style="display:none;"><p>RETARDING...</p></div>
+
+        <!-- Report Output -->
         <div id="report-content"></div>
-        <div id="ecosystem-section" style="display: none;">
-            <h3>Ecosystem Connections</h3>
-            <canvas id="ecosystemCanvas"></canvas>
-        </div>
-        <div id="sentiment-section" style="display: none;">
-            <h3>Sentiment Analysis</h3>
-            <p id="sentiment-text"></p>
-        </div>
-        <button id="downloadCardBtn">Generate Retarded Report Card</button>
-        <button id="shareTwitterBtn">Share on Twitter</button>
 
-        <!-- The "Recent Scans" and "Mooner" sections have been removed -->
+        <!-- Chart and Sentiment -->
+        <canvas id="ecosystemCanvas" width="400" height="400" style="display:none;"></canvas>
+        <p id="sentiment-text" style="display:none;"></p>
 
-        <footer>
-            <p>Powered by Retarded Auditor </p>
-        </footer>
+        <!-- Action Buttons -->
+        <button id="downloadCardBtn" class="pixel-btn" style="display:none;">DOWNLOAD DEGEN CARD</button>
+        <button id="shareTwitterBtn" class="pixel-btn secondary" style="display:none;">SHARE ON X, IDIOT!</button>
+        <div id="cardPreview" style="display:none;">
+            <img id="cardImg" alt="Degen Card">
+        </div>
     </div>
+
+    <footer>
+        <p>Powered by Retarded Auditor</p>
+    </footer>
+
     <script src="/static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

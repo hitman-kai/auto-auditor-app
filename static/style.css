@@ -1,194 +1,261 @@
+/* --- Import The Pixel Font --- */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-:root[data-theme="light"] {
-    --background-color: #ffffff;
-    --ink-black: #000000;
-    --sketch-gray: #eaeaea;
-    --accent: #000000;
-    --text-color: #000000;
-    --card-border: #000000;
-}
-:root[data-theme="dark"] {
-    --background-color: #222222;
-    --ink-black: #ffffff;
-    --sketch-gray: #333333;
-    --accent: #ffeb3b;
-    --text-color: #ffffff;
-    --card-border: #ffeb3b;
-}
+
+/* --- Main Body & Retro Gradient --- */
 body {
     font-family: 'Press Start 2P', cursive;
-    background-color: var(--background-color);
-    background-image: repeating-linear-gradient(
-        45deg,
-        var(--background-color),
-        var(--background-color) 10px,
-        var(--sketch-gray) 10px,
-        var(--sketch-gray) 20px
-    );
-    color: var(--text-color);
-    text-align: center;
+    background-color: #0d1a20; /* Dark Navy/Black */
+    background-image: linear-gradient(to bottom, #0d1a20, #1c4a4a);
+    color: #ffffff;
     margin: 0;
     padding: 20px;
-    image-rendering: pixelated;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
-.app-container {
-    max-width: 700px;
-    margin: 0 auto;
+
+/* --- Navigation Bar --- */
+nav {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border: 4px solid #00f0b0; /* Matches pixel-card border */
+    background-color: #00f0b02a; /* Subtle green background */
+    box-shadow: inset 0 0 0 4px #0d1a20; /* Inner shadow for retro effect */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
-header h1 {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    text-shadow: none;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 10px;
-    margin: 20px 0;
+nav a {
+    color: #b0e0e6; /* Cyan for default, matches header p */
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border: 2px solid transparent; /* Placeholder for hover */
+    transition: color 0.2s, text-shadow 0.2s, border-color 0.2s, background-color 0.2s;
 }
-header p {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    color: var(--text-color);
-    margin-top: -10px;
+nav a:hover {
+    color: #00f0b0; /* Neon green on hover, matches theme */
+    text-shadow: 2px 2px 0px #0d1a20; /* Black shadow for pop */
+    border-color: #00f0b0; /* Green border on hover */
+    background-color: #1affc8; /* Brighter green background */
 }
-.card {
-    background: var(--sketch-gray);
-    border: 2px dashed var(--card-border);
-    padding: 30px;
-    border-radius: 4px;
-    margin-bottom: 25px;
-    box-shadow: 4px 4px 0 var(--accent);
-}
-button {
-    font-family: 'Press Start 2P', cursive;
-    padding: 12px 24px;
-    background-color: transparent;
-    color: var(--accent);
-    border: 2px dashed var(--accent);
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-    box-shadow: 3px 3px 0 var(--accent);
-}
-button:hover {
-    background-color: var(--accent);
-    color: var(--background-color);
-    box-shadow: none;
-}
-button.secondary {
-    border-style: dotted;
-    color: var(--text-color);
-    box-shadow: none;
-}
-button.secondary:hover {
-    background-color: var(--accent);
-    color: var(--background-color);
-}
-#scannerSection p {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-color);
-}
-input {
-    font-family: 'Inter', sans-serif;
-    padding: 12px;
-    width: 90%;
-    border: 2px dashed var(--accent);
-    border-radius: 4px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-size: 1rem;
+
+/* --- Header & Titles --- */
+header {
+    width: 100%;
     text-align: center;
     margin-bottom: 20px;
 }
-#report-content {
-    display: block;
-    min-height: 100px;
+h1 {
+    font-size: 2em;
+    color: #ffffff;
+    text-shadow: 3px 3px 0px #00f0b0;
+    letter-spacing: 2px;
+    margin: 10px 0;
 }
+header p {
+    color: #b0e0e6;
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+/* --- Main App Container --- */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- Pixel Card Component --- */
+.pixel-card {
+    background-color: #00f0b02a;
+    border: 4px solid #00f0b0;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 4px #0d1a20;
+    text-align: center;
+}
+
+/* --- Pixelated Buttons --- */
+.pixel-btn {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #00f0b0;
+    color: #0d1a20;
+    padding: 12px 20px;
+    border: none;
+    border-top: 4px solid #9effe7;
+    border-left: 4px solid #9effe7;
+    border-bottom: 4px solid #00ab7e;
+    border-right: 4px solid #00ab7e;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    margin: 10px auto;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+.pixel-btn:hover {
+    background-color: #1affc8;
+}
+.pixel-btn:active {
+    border-top: 4px solid #00ab7e;
+    border-left: 4px solid #00ab7e;
+    border-bottom: 4px solid #9effe7;
+    border-right: 4px solid #9effe7;
+    transform: translateY(2px);
+}
+.pixel-btn.secondary {
+    background-color: #2a5a5a;
+    color: #b0e0e6;
+    border-top-color: #4b8a8a;
+    border-left-color: #4b8a8a;
+    border-bottom-color: #1a3a3a;
+    border-right-color: #1a3a3a;
+}
+
+/* --- Text Input Field --- */
+input[type="text"] {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #0d1a20;
+    border: 4px solid #00f0b0;
+    padding: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+input[type="text"]:focus {
+    outline: 2px solid #ffffff;
+}
+
+/* --- Report Styling --- */
 .report-container {
-    margin-top: 20px;
+    background-color: #002a2a;
+    border: 4px solid #00f0b0;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 4px #0d1a20;
     text-align: left;
 }
 .report-container h2 {
-    font-size: 1.8rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #00f0b0;
+    font-size: 1.1em;
     text-align: center;
-    padding-bottom: 10px;
-    color: var(--accent);
+    margin: 0 0 20px 0;
 }
 .report-container ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 .report-container li {
-    font-family: 'Inter', sans-serif;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px dashed var(--accent);
-    align-items: center;
-}
-.report-container strong {
-    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: space-between;
 }
 .report-container .value {
-    word-break: break-all;
-    text-align: right;
-    color: var(--text-color);
+    color: #00f0b0;
 }
-.report-container a {
-    color: var(--accent);
+.report-container a.value {
     text-decoration: underline;
 }
-.report-container .analysis-section {
-    margin-top: 25px;
-}
 .report-container h3 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.1rem;
-    color: var(--accent);
-}
-.report-container .analysis-text {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-color);
-    line-height: 1.6;
-}
-.report-container .disclaimer {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
     margin-top: 20px;
+    border-top: 4px dotted #00f0b0;
+    padding-top: 15px;
     text-align: center;
-    color: var(--text-color);
+    font-size: 0.9em;
 }
+
+/* --- Chart Canvas --- */
+#ecosystemCanvas {
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+/* --- Sentiment Text --- */
+#sentiment-text {
+    font-size: 0.9em;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* --- Card Preview --- */
+#cardPreview {
+    margin: 20px 0;
+    text-align: center;
+}
+#cardImg {
+    max-width: 100%;
+    border: 4px solid #00f0b0;
+}
+
+/* --- Loading Spinner --- */
 #loading {
+    display: none;
+    padding: 20px;
     text-align: center;
-    padding: 40px;
+    font-size: 1em;
+    color: #00f0b0;
 }
-#themeToggleBtn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
+#loading::after {
+    content: "■";
+    display: inline-block;
+    animation: blink 1s steps(2, start) infinite;
 }
+@keyframes blink {
+    to { visibility: hidden; }
+}
+
+/* --- Footer --- */
 footer {
-    font-family: 'Inter', sans-serif;
-    text-align: center;
     margin-top: 40px;
-    color: var(--text-color);
+    opacity: 0.6;
+    text-align: center;
+    font-size: 0.8em;
 }
-#downloadCardBtn, #shareTwitterBtn {
-    margin-top: 20px;
-    font-family: 'Press Start 2P', cursive;
-    padding: 12px 24px;
-    background-color: transparent;
-    color: var(--accent);
-    border: 2px dashed var(--accent);
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-    box-shadow: 3px 3px 0 var(--accent);
-}
-#downloadCardBtn:hover, #shareTwitterBtn:hover {
-    background-color: var(--accent);
-    color: var(--background-color);
-    box-shadow: none;
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 0.8em;
+        padding: 8px 0;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .pixel-btn {
+        padding: 10px 15px;
+        font-size: 0.8em;
+    }
+    input[type="text"] {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+    .report-container h2 {
+        font-size: 1em;
+    }
+    .report-container li {
+        font-size: 0.8em;
+    }
 }
